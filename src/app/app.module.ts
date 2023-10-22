@@ -3,16 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { StudentFormComponent } from './student-form/student-form.component';
+import { StudentListComponent } from './student-list/student-list.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, StudentFormComponent, StudentListComponent],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

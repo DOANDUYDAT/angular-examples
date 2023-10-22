@@ -1,0 +1,65 @@
+<form [formGroup]="student" class="mt-5 w-50">
+  <div class="border border-dark my-2 p-5">
+    <input
+      type="text"
+      placeholder="Student's Name"
+      formControlName="student_name"
+    />
+    <input
+      type="text"
+      placeholder="Student's Class"
+      formControlName="student_class"
+    />
+    <input
+      type="text"
+      placeholder="Student's Age"
+      formControlName="student_age"
+    />
+    <button
+      type="button"
+      (click)="reset()"
+      class="btn btn-sm btn-secondary ms-1"
+    >
+      Reset
+    </button>
+    <button
+      type="button"
+      *ngIf="studentIndex > 0"
+      (click)="removeStudent()"
+      class="btn btn-sm btn-danger ms-1"
+    >
+      Remove Student
+    </button>
+
+    <div [formGroup]="subjectsFormGroup()">
+      <div formArrayName="studentSubjectArray">
+        <div *ngFor="let studentSub of subjectsArray().controls; let i = index">
+          <div [formGroupName]="i">
+            <input
+              type="text"
+              placeholder="Subject"
+              formControlName="subject"
+            />
+            <input type="text" placeholder="Marks" formControlName="marks" />
+            <button
+              type="button"
+              *ngIf="subjectsArray().length > 1"
+              (click)="removeNewSubject(i)"
+              class="btn btn-sm btn-danger ms-1"
+            >
+              Remove Subject
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      (click)="addNewSubject()"
+      class="btn btn-sm btn-warning mt-2"
+    >
+      Add Subject
+    </button>
+  </div>
+</form>
