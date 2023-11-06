@@ -9,8 +9,11 @@ import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentListComponent } from './student-list/student-list.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
 
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +21,15 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     StudentFormComponent,
     StudentListComponent,
     FileUploadComponent,
+    DynamicTableComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
